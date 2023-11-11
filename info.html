@@ -14,7 +14,10 @@
     <div class="info-wrapper">
       <div class="info-bg"></div>
       <div class="info">
-        To generate your comic panels:
+        <div id="info-heading">
+          To generate your comic panels:
+          <button id="info-to-home" onclick="navigateToPage('index.html')"> Home </button>
+        </div>
         <ul>
             <li>Enter a prompt to generate the image for each panel</li>
             <li>You can generate upto 10 panels at a time</li>
@@ -22,7 +25,9 @@
             <li>Customize your panel border colour, width, and gap</li>
             <li>Download and share the generated comic anywhere!</li>
         </ul>
+        <button id="info-to-gen" onclick="navigateToPage('generate.html')">Generate</button>
       </div>
+      
     </div>
     
 

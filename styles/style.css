@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=DM+Serif+Display&family=Inconsolata:wght@300;400;500&family=Indie+Flower&family=Montserrat:wght@500&family=Orbitron:wght@400;500&family=Shadows+Into+Light&display=swap');
+
+@font-face {
+    font-family: 'Kungfu'; 
+    src: url('/Public/Fonts/KungFuMasterSpaced-MV7gp.otf') format('opentype'); 
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 :root {
@@ -12,23 +20,18 @@
     --bg-grey: #252525;
 }
 
-@font-face {
-    font-family: 'Kungfu'; 
-    src: url('/Public/Fonts/KungFuMasterSpaced-MV7gp.otf') format('opentype'); 
-}
-
-
 /* Index ---------------------------------------------------------------- */
 .landing-wrapper {
     display: flex;
     position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 
 .landing {
     display: flex;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
+    width: 100%;
+    height: 100%;
     background-image: url(/Public/Images/erik-mclean-8SeJUmfahu0-unsplash.jpg);
     background-size: cover;
     filter: brightness(55%);
@@ -36,15 +39,16 @@
 
 .heading {
     position: absolute;
+    margin-top: 10px;
+    top: 50%;
     left: 50%;
-    top: 40%;
     transform: translate(-50%, -50%);
     justify-content: center;
     text-align: center;
     font-family: 'Kungfu', sans-serif;
-    font-size: 4.5rem;
+    font-size: 5rem;
     color: wheat;
-
+    
 }
 
 .heading > #sub-text {
@@ -53,7 +57,9 @@
 }
 
 .heading > .grad  {
+    font-family: 'Kungfu', sans-serif;
     animation: bg-grad 2.5s linear infinite;
+    text-shadow: -6px -3px wheat;
     background: linear-gradient(
         to right,
         #3f5efb,
@@ -77,17 +83,21 @@
     }
 }
 
-.get-started {
-    display: flex;
-    width: 70%;
-    text-align: center;
-    flex-direction: column;
-    position: absolute;
-    bottom: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: wheat;
-    font-size: 2rem;
+#get-started-button {
+
+    margin-top: 90px;
+    font-family: 'Kungfu', sans-serif;
+    font-size: 1.2rem;
+    width: 150px;
+    height: 50px;
+    background-color: #C4D7F2;
+    border: none;
+    box-shadow: 6px 6px #C2B7EE;
+}
+
+#get-started-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px black;
 }
 
 
@@ -109,10 +119,47 @@
 
 .info {
     display: flex;
+    width: 100%;
+    height: 100%;
     position: absolute;
     color: wheat;
+    flex-direction: column;
+    font-family: 'Kungfu', sans-serif;
+    align-items: center;
+    justify-content: space-between;
 }
 
+#info-heading {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    font-family: 'Kungfu', sans-serif;
+    margin: 40px 60px;
+    font-size: 2rem;
+    align-self: start;
+}
+
+#info-to-home {
+    font-family: 'Kungfu', sans-serif;
+    letter-spacing: 3px;
+    width: 100px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    margin-left: 40px;
+}
+
+#info-to-gen {
+    font-family: 'Kungfu', sans-serif;
+    letter-spacing: 3px;
+    width: 100px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 80px;
+}
 
 /* Generate ----------------------------------------------------------- */
 .generate-wrapper {
@@ -130,8 +177,8 @@
     flex-direction: column;
     height: 100%;
     width: 30%;
-    background-color: lightgray;
-    gap: 3rem;
+    background-color: #C4D7F2;
+    gap: 1.5rem;
 }
 
 .prompt-wrapper {
@@ -142,6 +189,7 @@
     justify-content: center;
     align-content: center;
     gap: 20px;
+    margin-bottom: 30px;
 }
 
 label {
@@ -201,95 +249,97 @@ label {
 }
 
 #editButton, #confirmButton, #retryButton {
-    cursor: pointer;
-    background-color: pink;
-    width: 60px;
-    border-radius: 3px;
-    height: 30px;
-    text-align: center;
-    box-shadow: 4px 4px black;
-    font-size: 14px;
-}
-
-#editButton {
-
-}
-
-#confirmButton {
-
-}
-
-#retryButton {
-
-}
-
-#editButton, #confirmButton, #retryButton {
+    margin-top: 5px;
     position: relative;
     border: none;
     font-size: 16px;
     width: 60px;
+    height: 32px;
     background-color: inherit;
-    border-radius: 3px;
+    border-radius: 10px;
+    border: 2px solid black;
     color: black;
-    box-shadow: 0 0 0 2px black;
     cursor: pointer;
     overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 #confirmButton {
-    width: 68px;
+    width: 75px;
 }
 
-#editButton span:last-child, #confirmButton span:last-child, #retryButton span:last-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    border-radius: 50%;
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+#editButton:hover {
+    background-color: skyblue;
+    transform: translateY(-2px);
 }
 
-#editButton span:first-child, #confirmButton span:first-child, #retryButton span:first-child {
-    position: relative;
-    z-index: 1;
+#confirmButton:hover {
+    background-color: lightgreen;
+    transform: translateY(-2px);
 }
 
-#editButton:hover, #confirmButton:hover, #retryButton:hover {
-    box-shadow: 0 0 0 5px #2195f360;
-    color: #ffffff;
+#retryButton:hover {
+    background-color: rgb(249, 91, 91);
+    transform: translateY(-2px);
 }
 
 #editButton:active, #confirmButton:active, #retryButton:active {
     scale: 0.95;
 }
 
-#editButton:hover span:last-child, #confirmButton:hover span:last-child, #retryButton:hover span:last-child {
-    width: 150px;
-    height: 150px;
-    opacity: 1;
+/* Loader */
+#loader {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+    position: relative;
+    background: #FFF;
+    box-sizing: border-box;
+    z-index: 2;
 }
+
+#loader::after {
+    content: '';
+    width: calc(100% - 30px);
+    height: calc(100% - 15px);
+    top: 15px;
+    left: 15px;
+    position: absolute;
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
+     linear-gradient(#DDD 100px, transparent 0),
+     linear-gradient(#DDD 16px, transparent 0),
+     linear-gradient(#DDD 50px, transparent 0);
+    background-repeat: no-repeat;
+    background-size: 75px 175px, 100% 100px, 100% 16px, 100% 30px;
+    background-position: -185px 0, center 0, center 115px, center 142px;
+    box-sizing: border-box;
+    animation: animloader 1s linear infinite;
+  }
   
-  
-  
+@keyframes animloader {
+    to {
+      background-position: 185px 0, center 0, center 115px, center 142px;
+    }
+}
+
+#loader {
+    display: none;
+}
 
 /* Right col */
 .right-col {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     height: 100%;
     width: 70%;
-    background-color:aqua;
+    background-color:#E6F2F8;
 }
 
 .comic-panel-wrapper {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -302,9 +352,20 @@ label {
 
 .panel {
     position: relative;
-    width: 12rem;
+    width: 12.5rem;
+    height: 12.5rem;
+    border: 3px solid #121212;
+}
+
+.edit-panel {
+    position: relative;
+    width: 22rem;
     aspect-ratio: 1 / 1;
     border: 3px solid #121212;
+}
+
+#download-button {
+    margin-bottom: 40px;
 }
 
 .selected {
@@ -314,6 +375,26 @@ label {
 .action-buttons {
     display: none;
 }
+
+.edit-small, .delete-small {
+    width: 35px;
+    aspect-ratio: 1;
+}
+
+.edit-small {
+    background-image: url(/Public/svg/edit.svg);
+    background-size: contain;
+}
+
+.delete-small {
+    background-image: url(/Public/svg/delete.svg);
+    background-size: contain;
+}
+
+.edit-small:hover, .delete-small:hover {
+    background-color: pink;
+}
+
 
 .panel.selected .action-buttons {
     display: flex;
@@ -327,10 +408,6 @@ label {
 .panel-image {
     width: 100%;
     height: 100%;
-}
-
-.edit-panel {
-    width: 22rem;
 }
 
 #marker-img {
