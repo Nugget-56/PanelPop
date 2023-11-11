@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Aayush">
+    <meta name="description" content="Make and share comic panels on the fly"/>
+    <title>Panel Pop</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <script src="/scripts/script.js" defer></script>
+    <script src="https://unpkg.com/markerjs2/markerjs2.js"></script> 
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  </head>
+
+  <body>
+    <div class="generate-wrapper">
+      <section class="left-col">
+        <div class="prompt-wrapper">
+          <label for="userPrompt">Enter your prompt here:</label>
+          <input type="text" id="userPrompt" placeholder="Eg: A cartoon of a monkey in space">
+          <button type="submit" id="generateButton">Generate</button>
+        </div>
+        <div class="panel edit-panel"><img id="marker-img" src="" alt="Generate or select a generate photo to display here"></div>
+        <div class="marker-button-wrapper">
+          <button id="editButton"><span> Edit </span><span></span></button>
+          <button id="retryButton"><span> Retry </span><span></span></button>
+          <button id="confirmButton" onclick="confirmChanges()"><span> Confirm </span><span></span></button>
+        </div>
+      </section>
+      <section class="right-col">
+        <div class="comic-edit-wrapper">
+
+        </div>
+         <div class="comic-panel-wrapper">
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="1">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="2">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="3">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="4">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="5">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="6">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="7">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="8">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="9">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+            <div class="panel" onclick="handlePanelClick(this)">
+              <img class="panel-image" src="" alt="10">
+              <div class="action-buttons">
+                <button onclick="editImage()">Edit</button>
+                <button onclick="deleteImage()">Delete</button>
+            </div>
+            </div>
+         </div>
+         <button id="download-button">Download</button>
+      </section>
+    </div>
+    
+
+    <footer>
+
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,339 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-size: 16px;
+    --main: palevioletred;
+    --main2: #9370db;
+    --bg-dark: #121212;
+    --bg-grey: #252525;
+}
+
+@font-face {
+    font-family: 'Kungfu'; 
+    src: url('/Public/Fonts/KungFuMasterSpaced-MV7gp.otf') format('opentype'); 
+}
+
+
+/* Index ---------------------------------------------------------------- */
+.landing-wrapper {
+    display: flex;
+    position: relative;
+}
+
+.landing {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url(/Public/Images/erik-mclean-8SeJUmfahu0-unsplash.jpg);
+    background-size: cover;
+    filter: brightness(55%);
+}
+
+.heading {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    text-align: center;
+    font-family: 'Kungfu', sans-serif;
+    font-size: 4.5rem;
+    color: wheat;
+
+}
+
+.heading > #sub-text {
+    font-family:fantasy;
+    font-size: 1.5rem;
+}
+
+.heading > .grad  {
+    animation: bg-grad 2.5s linear infinite;
+    background: linear-gradient(
+        to right,
+        #3f5efb,
+        #fc466b,
+        #3f5efb
+    );
+
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+@keyframes bg-grad {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: 200% center;
+    }
+}
+
+.get-started {
+    display: flex;
+    width: 70%;
+    text-align: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: wheat;
+    font-size: 2rem;
+}
+
+
+/* Info ---------------------------------------------------------------- */
+.info-wrapper {
+    display: flex;
+    position: relative;
+}
+
+.info-bg {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url(/Public/Images/pexels-markus-spiske-6445409.jpg);
+    background-size: cover;
+    filter: brightness(55%);
+}
+
+.info {
+    display: flex;
+    position: absolute;
+    color: wheat;
+}
+
+
+/* Generate ----------------------------------------------------------- */
+.generate-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* Left col */
+.left-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    background-color: lightgray;
+    gap: 3rem;
+}
+
+.prompt-wrapper {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+}
+
+label {
+    font-family: 'Kungfu', sans-serif;
+    font-size: 18px;
+}
+
+#userPrompt {
+    font-size: 16px;
+    width: 350px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    text-indent: 10px;
+}
+
+#userPrompt:focus {
+    border: 1px solid blue;
+}
+
+#generateButton, #download-button {
+    cursor: pointer;
+    background-color: pink;
+    width: 100px;
+    border-radius: 3px;
+    height: 40px;
+    text-align: center;
+    box-shadow: 4px 4px black;
+    font-size: 14px;
+}
+
+#generateButton {
+    align-self: center;
+    
+}
+
+#download-button {
+    margin-right: 7%;
+    align-self: flex-end;
+}
+
+#generateButton:hover, #download-button:hover {
+    background-color: rgb(232, 126, 162);
+}
+
+#generateButton:active, #download-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px black;
+}
+
+.marker-button-wrapper {
+    display: flex;
+    width: fit-content;
+    justify-content: space-evenly;
+    gap: 40px;
+}
+
+#editButton, #confirmButton, #retryButton {
+    cursor: pointer;
+    background-color: pink;
+    width: 60px;
+    border-radius: 3px;
+    height: 30px;
+    text-align: center;
+    box-shadow: 4px 4px black;
+    font-size: 14px;
+}
+
+#editButton {
+
+}
+
+#confirmButton {
+
+}
+
+#retryButton {
+
+}
+
+#editButton, #confirmButton, #retryButton {
+    position: relative;
+    border: none;
+    font-size: 16px;
+    width: 60px;
+    background-color: inherit;
+    border-radius: 3px;
+    color: black;
+    box-shadow: 0 0 0 2px black;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+#confirmButton {
+    width: 68px;
+}
+
+#editButton span:last-child, #confirmButton span:last-child, #retryButton span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+#editButton span:first-child, #confirmButton span:first-child, #retryButton span:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+#editButton:hover, #confirmButton:hover, #retryButton:hover {
+    box-shadow: 0 0 0 5px #2195f360;
+    color: #ffffff;
+}
+
+#editButton:active, #confirmButton:active, #retryButton:active {
+    scale: 0.95;
+}
+
+#editButton:hover span:last-child, #confirmButton:hover span:last-child, #retryButton:hover span:last-child {
+    width: 150px;
+    height: 150px;
+    opacity: 1;
+}
+  
+  
+  
+
+/* Right col */
+.right-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 70%;
+    background-color:aqua;
+}
+
+.comic-panel-wrapper {
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 95%;
+    height: fit-content;
+    gap: 4px;
+    background-color:white
+}
+
+.panel {
+    position: relative;
+    width: 12rem;
+    aspect-ratio: 1 / 1;
+    border: 3px solid #121212;
+}
+
+.selected {
+    border: 3px solid blue;
+}
+
+.action-buttons {
+    display: none;
+}
+
+.panel.selected .action-buttons {
+    display: flex;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    gap: 4px;
+
+}
+
+.panel-image {
+    width: 100%;
+    height: 100%;
+}
+
+.edit-panel {
+    width: 22rem;
+}
+
+#marker-img {
+    width: 100%;
+    height: 100%;
+}
