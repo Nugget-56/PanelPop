@@ -1,6 +1,8 @@
 # PanelPop
 Dashtoon assignment
 
+I will be adding the link to the hosted website soon here!
+
 The website is not responsive at this point in time, so please open it on a laptop! I will try to make it responsive within a day
 
 ![image](https://github.com/Nugget-56/PanelPop/assets/76615014/ddf3fde4-022e-4400-b505-318daa3a7804)
