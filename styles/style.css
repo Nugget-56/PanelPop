@@ -220,7 +220,7 @@ label {
     width: 350px;
     height: 40px;
     border-radius: 5px;
-    border: none;
+    border: 2px solid black;
     outline: none;
     text-indent: 10px;
 }
@@ -282,7 +282,7 @@ label {
     border: none;
     font-size: 16px;
     width: 60px;
-    height: 32px;
+    height: 40px;
     background-color: inherit;
     border-radius: 10px;
     border: 2px solid black;
@@ -293,11 +293,11 @@ label {
 }
 
 #confirmButton {
-    width: 75px;
+    width: 90px;
 }
 
 #editButton:hover {
-    background-color: skyblue;
+    background-color: rgb(79, 175, 213);
     transform: translateY(-2px);
 }
 
@@ -306,12 +306,7 @@ label {
     transform: translateY(-2px);
 }
 
-#retryButton:hover {
-    background-color: rgb(249, 91, 91);
-    transform: translateY(-2px);
-}
-
-#editButton:active, #confirmButton:active, #retryButton:active {
+#editButton:active, #confirmButton:active {
     scale: 0.95;
 }
 

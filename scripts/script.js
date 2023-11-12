@@ -1,11 +1,19 @@
 // For the panel select function...
-let selectedPanel = null;
+let selectedPanel = null; 
 
-// Image api call function
+// For rate limiting
+let lastRequestTimestamp = 0;
+const throttleDuration = 1000; 
+
+function navigateToPage(page) {
+    window.location.href = page;
+}
+
 async function query(userInput) {
     try {
-        // Displaying the loader
-        document.getElementById('loader').style.display = 'block';
+        document.getElementById('generateButton').disabled = true; // Disable the button while one request is underway
+
+        document.getElementById('loader').style.display = 'block'; // Displaying the loader
 
         // If a image already exists in the display panel, remove it
         const existingImgElement = document.querySelector('.edit-panel img');
@@ -53,6 +61,11 @@ async function query(userInput) {
         console.log('Done');
     } catch (error) {
         console.log('Error:', error);
+        // Stop the loader and display the error message to the user
+        document.getElementById('loader').style.display = 'none';
+        alert(`An error occurred: ${error.message}`);
+    } finally {
+        document.getElementById('generateButton').disabled = false;
     }
 }
 
@@ -60,12 +73,19 @@ async function query(userInput) {
 document.getElementById('generateButton').addEventListener('click', () => {
     const value = document.getElementById('userPrompt').value;
     const error = document.getElementsByClassName("error")[0];
-    const promptBox = document.getElementById('userPrompt');
+    const now = Date.now();
 
-    // Handle empty request
+    // Handle empty request and limit no. of requests
     if (value === "") {
         const errorMessage = '🛈 Please enter a valid prompt!';
         error.innerHTML = errorMessage;
+    } else if (now - lastRequestTimestamp <= throttleDuration) {
+        const errorMessage = `🛈 Please wait before making another request!`;
+        console.log(lastRequestTimestamp);
+        console.log(now);
+        console.log(now - lastRequestTimestamp >= throttleDuration);
+        error.innerHTML = errorMessage;
+        lastRequestTimestamp = now;
     } else {
         const errorMessage = '';
         error.innerHTML = errorMessage;
@@ -77,7 +97,7 @@ document.getElementById('generateButton').addEventListener('click', () => {
 function annotate(element) {
     const markerElement = document.getElementById(element)
     const markerArea = new markerjs2.MarkerArea(markerElement);
-    // Configuring the editor
+
     markerArea.settings.displayMode = 'popup';
     markerArea.renderAtNaturalSize = true;
     markerArea.settings.defaultColor = 'black';
@@ -88,11 +108,6 @@ function annotate(element) {
     });
     markerArea.show();
 }
-
-// Calling the annotate function for the main editing area
-document.getElementById('editButton').addEventListener('click', () => {
-    annotate("marker-img");
-});
 
 // ...Function to handle comic panel clicking and selection
 function handlePanelClick(panel) {
@@ -126,13 +141,17 @@ function confirmChanges() {
     }
 }
 
-// Edit image function on each panel
+// Calling the annotate function for the main editing area
+document.getElementById('editButton').addEventListener('click', () => {
+    annotate("marker-img");
+});
+
+// Edit image function on each panel by calling annotate
 function editImage() {
     if (selectedPanel) {
         const selectedPanelImage = selectedPanel.querySelector('.panel-image');
 
         if (selectedPanelImage) {
-            // Calling annotate function on the selected panel
             annotate(`${selectedPanelImage.id}`);
         } else {
             alert("No image available");
@@ -169,12 +188,6 @@ document.getElementById('download-button').addEventListener('click', () => {
     });
 });
 
-// Varaible to store current width
-const panel = document.getElementsByClassName('panel')[1];
-let computedStyle = window.getComputedStyle(panel);
-let border = computedStyle.getPropertyValue('border-width');
-let currentWidth = parseFloat(border);
-
 // Function to change the panel gap via user input
 document.getElementById('panelGapSlider').addEventListener('input', () => {
     const panelGapSlider = document.getElementById('panelGapSlider');
@@ -182,12 +195,11 @@ document.getElementById('panelGapSlider').addEventListener('input', () => {
     
     panelContainer.style.gap = panelGapSlider.value + 'px';
 
+    // Reduce the inner borders when gap = 0
     const panels = document.querySelectorAll('.panel'); 
-
     const currentWidth = getComputedStyle(document.getElementsByClassName('panel')[0]).getPropertyValue('border-width');
 
-    // Reduce the inner borders when gap = 0
-   /*  if(panelGapSlider.value === "0") {
+    /* if(panelGapSlider.value === "0") {
         panels.forEach((panel, index) => {
             if (index !== 4 && index !== 9) {
                 panel.style.borderRightWidth = `${currentWidth / 2}px`;
@@ -232,6 +244,3 @@ document.getElementById('panelWidth').addEventListener('input', () => {
     }); 
 });
 
-function navigateToPage(page) {
-    window.location.href = page;
-}
