@@ -109,6 +109,35 @@
 
 
 /* Info -------------------------------------------------------------------------------- */
+#overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in-out;
+}
+
+#info-popup {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        
+}
+
+#overlay.active, #info-popup.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
 .info-wrapper {
     display: flex;
     position: relative;
@@ -116,12 +145,12 @@
 
 .info-bg {
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: 80vw;
+    height: 90vh;
     position: relative;
     background-image: url(/Public/Images/pexels-markus-spiske-6445409.jpg);
     background-size: cover;
-    filter: brightness(55%);
+    filter: brightness(35%);
 }
 
 .info {
@@ -133,39 +162,43 @@
     flex-direction: column;
     font-family: 'Kungfu', sans-serif;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #info-heading {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     display: flex;
-    width: 90%;
-    justify-content: space-between;
     font-family: 'Kungfu', sans-serif;
-    margin: 40px 60px;
     font-size: 2rem;
-    align-self: start;
 }
 
-#info-to-home {
-    font-family: 'Kungfu', sans-serif;
-    letter-spacing: 3px;
-    width: 100px;
-    height: 40px;
-    outline: none;
+#info-close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 35px;
     border: none;
-    border-radius: 4px;
-    margin-left: 40px;
+    border-radius: 5px;
+    background-color: lightgray;
 }
 
-#info-to-gen {
-    font-family: 'Kungfu', sans-serif;
-    letter-spacing: 3px;
-    width: 100px;
-    height: 40px;
-    outline: none;
-    border: none;
-    border-radius: 4px;
-    margin-bottom: 80px;
+#info-close:hover {
+    background-color: gray;
+}
+
+.info > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info > ul > li {
+    margin: 0px 50px;
+    font-size: 20px
 }
 
 /* Generate ------------------------------------------------------------------------ */
@@ -197,6 +230,8 @@
     background-color:#E6F2F8;
     flex-grow: 1;
 }
+
+
 
 /* Left col ---------------------------*/
 .prompt-wrapper {

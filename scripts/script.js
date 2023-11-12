@@ -125,10 +125,18 @@ function handlePanelClick(panel) {
 function confirmChanges() {
     const markerImageSrc = document.getElementById('marker-img').src;
     if (selectedPanel) {
-        const selectedPanelImage = selectedPanel.querySelector('img');
+        const existingImgElement = selectedPanel.querySelector('img');
 
-        if (selectedPanelImage) {
-            selectedPanelImage.src = markerImageSrc;
+        if (existingImgElement) {
+            existingImgElement.src = markerImageSrc;
+        } else {
+            const newImg = document.createElement('img');
+            newImg.src = markerImageSrc;
+            newImg.alt = "Generated image";
+            newImg.height = '100%';
+            newImg.width = '100%';
+            newImg.classList.add('panel-image'); 
+            selectedPanel.appendChild(newImg);
         }
     } else { 
         /* const emptyPanels = document.getElementsByClassName("panel")
@@ -146,13 +154,15 @@ document.getElementById('editButton').addEventListener('click', () => {
     annotate("marker-img");
 });
 
-// Edit image function on each panel by calling annotate
+// Calling annotate for selected panel
 function editImage() {
     if (selectedPanel) {
         const selectedPanelImage = selectedPanel.querySelector('.panel-image');
 
         if (selectedPanelImage) {
-            annotate(`${selectedPanelImage.id}`);
+            const id = selectedPanelImage.classList[0];
+            console.log(id);
+            annotate(id);
         } else {
             alert("No image available");
         }
@@ -165,7 +175,7 @@ function deleteImage() {
         const selectedPanelImage = selectedPanel.querySelector('.panel-image');
 
         if (selectedPanelImage) {
-            selectedPanelImage.src = "";
+            selectedPanelImage.remove();
         } else {
             alert("No image available");
         }
@@ -244,3 +254,12 @@ document.getElementById('panelWidth').addEventListener('input', () => {
     }); 
 });
 
+function openPopup() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('info-popup').style.display = 'block';
+}
+
+function closePopup() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('info-popup').style.display = 'none';
+}
