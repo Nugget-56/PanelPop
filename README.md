@@ -13,7 +13,7 @@ I went with popup instructions instead so the users can go through them again ev
 
 ![image](https://github.com/Nugget-56/PanelPop/assets/76615014/7b547dbf-982e-4a72-aded-d448b87c6d3a)
 
-Users can generate the images and it will be shown in the leftmost box after loading ends
+Users can generate the images and it will be shown in the leftmost box after loading ends. I have handled the case for empty request, disabling the generate button while one request is underway, and alerting the user if any error occurs. I also complentated implementing multiple queries in one prompt separated by a comma or such, but the editing and adding to the panel flow with one query is much more user friendly
 
 ![image](https://github.com/Nugget-56/PanelPop/assets/76615014/517983fd-aa33-40f5-8969-7ee377156781)
 
