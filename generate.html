@@ -17,7 +17,10 @@
       <section class="left-col">
         <div class="prompt-wrapper">
           <label for="userPrompt">Enter your prompt here:</label>
-          <input type="text" id="userPrompt" placeholder="Eg: A cartoon of a monkey in space">
+          <div class="input-field">
+            <input type="text" id="userPrompt" placeholder="Eg: A cartoon of a monkey in space" required>
+            <span class="error"></span>
+          </div>
           <button type="submit" id="generateButton">Generate</button>
         </div>
         <div class="edit-panel">
@@ -31,86 +34,97 @@
       </section>
       <section class="right-col">
         <div class="comic-edit-wrapper">
-          <button onclick="navigateToPage('index.html')"> Home </button>
-          <button onclick="navigateToPage('info.html')"> Instructions </button>
+          <button id="gen-to-home" onclick="navigateToPage('index.html')"> Home </button>
+          <button id="gen-to-info" onclick="navigateToPage('info.html')"> Instructions </button>
+          <div class="slider-wrapper">
+              <label for="panelGapSlider">Panel Gap:</label>
+              <input type="range" id="panelGapSlider" min="0" max="5" value="3" style="margin-left: 10px;">
+          
+              <label for="panelWidth">Border width:</label>
+              <input type="range" id="panelWidth" min="0" max="5" value="3" style="margin-left: 10px;">
+           
+              <label for="panelColour">Border colour:</label>
+              <input type="color" id="panelColour" style="margin-right: 35px; margin-left: 10px;">
+          </div>
         </div>
-         <div class="comic-panel-wrapper">
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="1">
-              <div class="action-buttons">
-                <button class="edit-small" onclick="editImage()"></button>
-                <button class="delete-small" onclick="deleteImage()"></button>
+         <div class="comic-panel">
+            <div class="comic-panel-wrapper">
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="1">
+                <div class="action-buttons">
+                  <button class="edit-small" onclick="editImage()"></button>
+                  <button class="delete-small" onclick="deleteImage()"></button>
+                </div>
               </div>
-            </div>
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="2">
-              <div class="action-buttons">
-                <button class="edit-small" onclick="editImage()"></button>
-                <button class="delete-small" onclick="deleteImage()"></button>
-             </div>
-            </div>
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="3">
-              <div class="action-buttons">
-                <button class="edit-small" class="edit-small"  onclick="editImage()"></button>
-                <button class="delete-small" onclick="deleteImage()"></button>
-            </div>
-            </div>
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="4">
-              <div class="action-buttons">
-                <button class="edit-small"  onclick="editImage()"></button>
-                <button class="delete-small"  onclick="deleteImage()"></button>
-            </div>
-            </div>
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="5">
-              <div class="action-buttons">
-                <button class="edit-small"  onclick="editImage()"></button>
-                <button class="delete-small"  onclick="deleteImage()"></button>
-            </div>
-            </div>
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="6">
-              <div class="action-buttons">
-                <button class="edit-small" onclick="editImage()"></button>
-                <button class="delete-small"  onclick="deleteImage()"></button>
-            </div>
-            </div>
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="7">
-              <div class="action-buttons">
-                <button class="edit-small"  onclick="editImage()"></button>
-                <button class="delete-small"  onclick="deleteImage()"></button>
-            </div>
-            </div>
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="8">
-              <div class="action-buttons">
-                <button class="edit-small"  onclick="editImage()"></button>
-                <button class="delete-small" onclick="deleteImage()"></button>
-            </div>
-            </div>
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="9">
-              <div class="action-buttons">
-                <button class="edit-small"  onclick="editImage()"></button>
-                <button class="delete-small"  onclick="deleteImage()"></button>
-            </div>
-            </div>
-            <div class="panel" onclick="handlePanelClick(this)">
-              <img class="panel-image" src="" alt="10">
-              <div class="action-buttons">
-                <button class="edit-small" onclick="editImage()"></button>
-                <button class="delete-small" onclick="deleteImage()"></button>
-            </div>
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="2">
+                <div class="action-buttons">
+                  <button class="edit-small" onclick="editImage()"></button>
+                  <button class="delete-small" onclick="deleteImage()"></button>
+                </div>
+              </div>
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="3">
+                <div class="action-buttons">
+                  <button class="edit-small" class="edit-small"  onclick="editImage()"></button>
+                  <button class="delete-small" onclick="deleteImage()"></button>
+                </div>
+              </div>
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="4">
+                <div class="action-buttons">
+                  <button class="edit-small"  onclick="editImage()"></button>
+                  <button class="delete-small"  onclick="deleteImage()"></button>
+                </div>
+              </div>
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="5">
+                <div class="action-buttons">
+                  <button class="edit-small"  onclick="editImage()"></button>
+                  <button class="delete-small"  onclick="deleteImage()"></button>
+                </div>
+              </div>
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="6">
+                <div class="action-buttons">
+                  <button class="edit-small" onclick="editImage()"></button>
+                  <button class="delete-small"  onclick="deleteImage()"></button>
+                </div>
+              </div>
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="7">
+                <div class="action-buttons">
+                  <button class="edit-small"  onclick="editImage()"></button>
+                  <button class="delete-small"  onclick="deleteImage()"></button>
+                </div>
+              </div>
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="8">
+                <div class="action-buttons">
+                  <button class="edit-small"  onclick="editImage()"></button>
+                  <button class="delete-small" onclick="deleteImage()"></button>
+                </div>
+              </div>
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="9">
+                <div class="action-buttons">
+                  <button class="edit-small"  onclick="editImage()"></button>
+                  <button class="delete-small"  onclick="deleteImage()"></button>
+                </div>
+              </div>
+              <div class="panel" onclick="handlePanelClick(this)">
+                <img class="panel-image" src="" alt="10">
+                <div class="action-buttons">
+                  <button class="edit-small" onclick="editImage()"></button>
+                  <button class="delete-small" onclick="deleteImage()"></button>
+                </div>
+              </div>
             </div>
          </div>
          <button id="download-button">Download</button>
       </section>
     </div>
-    
-
+  
     <footer>
 
     </footer>
