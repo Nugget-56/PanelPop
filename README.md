@@ -19,6 +19,8 @@ Users can generate the images and it will be shown in the leftmost box after loa
 
 After editing the image they can add it to any selected panel. There are edit and delete button within every panel for its respective image but the edit button on the panel is not working right now (Fixing it!)
 
+![image](https://github.com/Nugget-56/PanelPop/assets/76615014/7f4ef926-78e5-4025-9634-c2cbfd0e3b7b)
+
 Other than that, the user can also change the panel gap, border width and colour according to their prefrences. Finally, they can download the comic panel to their devices.
 
 
