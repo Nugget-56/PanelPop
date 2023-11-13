@@ -9,7 +9,7 @@ The website is not responsive at this point in time, so please open it on a lapt
 
 Here is the landing page of my website which takes you to the editing area for your comic panel
 
-![image](https://github.com/Nugget-56/PanelPop/assets/76615014/61459f71-d6e0-415a-842f-e7b0ee6eb318)
+![image](https://github.com/Nugget-56/PanelPop/assets/76615014/b0296fe3-f544-463e-ae94-aa7a94f1d54f)
 
 I went with popup instructions instead so the users can go through them again even while editing without losing any work
 
