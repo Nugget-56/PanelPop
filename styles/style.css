@@ -48,7 +48,6 @@
     font-family: 'Kungfu', sans-serif;
     font-size: 5rem;
     color: wheat;
-    
 }
 
 .heading > #sub-text {
@@ -107,6 +106,68 @@
     box-shadow: 0px 0px black;
 }
 
+
+@media all and (max-width: 900px) {
+    .heading {
+        font-size: 4rem;
+    } 
+    .heading > #sub-text {
+        font-family:fantasy;
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+    .heading > .grad  {
+        text-shadow: -6px -2px wheat;
+    }
+}
+
+@media all and (max-width: 700px) {
+    .heading {
+        font-size: 3rem;
+    } 
+    .heading > #sub-text {
+        font-family:fantasy;
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+    .heading > .grad  {
+        text-shadow: -4px -2px wheat;
+    }
+    #get-started-button {
+        margin-top: 60px;
+        width: 120px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+@media all and (max-width: 550px) {
+    .heading {
+        font-size: 2rem;
+    } 
+    .heading > #sub-text {
+        font-family:fantasy;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+    #get-started-button {
+        margin-top: 60px;
+        width: 90px;
+        height: 30px;
+        font-size: 0.7rem;
+    }
+}
+
+@media all and (max-width: 330px) {
+    .heading {
+        font-size: 1.7rem;
+    } 
+    .heading > #sub-text {
+        font-family:fantasy;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+}
 
 /* Info -------------------------------------------------------------------------------- */
 #overlay {
