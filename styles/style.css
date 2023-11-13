@@ -340,15 +340,13 @@ label {
 
 #editButton:hover {
     background-color: rgb(79, 175, 213);
-    transform: translateY(-2px);
 }
 
 #confirmButton:hover {
     background-color: lightgreen;
-    transform: translateY(-2px);
 }
 
-#editButton:active, #confirmButton:active {
+#editButton:active, #confirmButton:active, #gen-to-home:active, #gen-to-info:active {
     scale: 0.95;
 }
 
@@ -402,8 +400,14 @@ label {
     align-items: center;
 }
 
+.button-wrapper {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #gen-to-home, #gen-to-info {
-    align-self: flex-start;
     margin-left: 20px;
     background-color: #cdb4db;
     cursor: pointer;
@@ -414,12 +418,13 @@ label {
     font-size: 14px;
 }
 
-#gen-to-home {
-    margin-top: 10px;
+#gen-to-home:hover, #gen-to-info:hover {
+    background-color: #9f6dbb;
 }
 
 #gen-to-info {
     width: 130px;
+    margin-right: 40px;
 }
 
 .slider-wrapper {

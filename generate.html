@@ -51,8 +51,10 @@
       </section>
       <section class="right-col">
         <div class="comic-edit-wrapper">
-          <button id="gen-to-home" onclick="navigateToPage('index.html')"> Home </button>
-          <button id="gen-to-info" onclick="openPopup()"> Instructions </button>
+          <div class="button-wrapper">
+            <button id="gen-to-home" onclick="navigateToPage('index.html')"> Home </button>
+            <button id="gen-to-info" onclick="openPopup()"> Instructions </button>
+          </div>
           <div class="slider-wrapper">
               <label for="panelGapSlider">Panel Gap:</label>
               <input type="range" id="panelGapSlider" min="0" max="5" value="3" style="margin-left: 10px;">
