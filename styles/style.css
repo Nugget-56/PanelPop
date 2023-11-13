@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=DM+Serif+Display&family=Inconsolata:wght@300;400;500&family=Indie+Flower&family=Montserrat:wght@500&family=Orbitron:wght@400;500&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=DM+Serif+Display&family=Inconsolata:wght@300;400;500&family=Indie+Flower&family=Montserrat:wght@500&family=Orbitron:wght@400;500&family=Roboto+Mono&family=Shadows+Into+Light&display=swap');
 
 @font-face {
     font-family: 'Kungfu'; 
@@ -198,7 +198,14 @@
 
 .info > ul > li {
     margin: 0px 50px;
-    font-size: 20px
+    font-size: 22px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.spoiderman {
+    width: 30px;
+    height: 30px;
+    transform: translateY(7px);
 }
 
 /* Generate ------------------------------------------------------------------------ */
