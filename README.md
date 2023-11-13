@@ -1,7 +1,7 @@
 # PanelPop
 Dashtoon assignment
 
-I will be adding the link to the hosted website soon here!
+Link: https://panelpop.netlify.app/
 
 The website is not responsive at this point in time, so please open it on a laptop! I will try to make it responsive within a day
 
